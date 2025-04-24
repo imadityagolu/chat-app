@@ -1,23 +1,52 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    background-color: #007bff;
+    background-color: #ffffff; /* Changed from #007bff */
+  }
+  .container-fluid {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
   }
   header {
     height: 50px;
     background-color: #007bff;
+    width: 100%;
+  }
+  .dropdown-menu {
+    min-width: 150px;
+  }
+  .dropdown-item.disabled {
+    font-weight: bold;
+    color: #6c757d;
   }
   .main-content {
     height: calc(100vh - 50px);
-    overflow-y:auto;
-    overflow-x:hidden;
-    padding-left: 0px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 0;
   }
   #chat-list {
     background-color: #ffffff;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f0f0f0;
     max-height: 100%;
     overflow: hidden;
     border-bottom: 1px solid #dee2e6;
+  }
+  #chat-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  #chat-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  #chat-list::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
   }
   .chat-item {
     display: flex;
@@ -26,6 +55,7 @@ body {
     border-bottom: 1px solid #e9ecef;
     cursor: pointer;
     transition: background-color 0.2s;
+    width: 100%;
   }
   .chat-item:hover {
     background-color: #f8f9fa;
@@ -42,8 +72,7 @@ body {
   }
   .chat-item .chat-info {
     flex-grow: 1;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
   }
   .chat-item .chat-info strong {
     font-size: 16px;
@@ -60,6 +89,7 @@ body {
   #chat-header {
     height: 70px;
     background-color: #f0f0f0;
+    width: 100%;
   }
   #chat-header .avatar {
     width: 40px;
@@ -74,7 +104,22 @@ body {
   #messages {
     background-color: #ffffff;
     height: calc(100% - 110px);
-    padding: 10px;
+    padding: 0 10px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f0f0f0;
+    width: 100%;
+  }
+  #messages::-webkit-scrollbar {
+    width: 8px;
+  }
+  #messages::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  #messages::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
   }
   .message {
     max-width: 80%;
@@ -103,6 +148,7 @@ body {
   #message-form {
     background-color: #f0f0f0;
     padding: 10px 15px !important;
+    width: 100%;
   }
   #message-input {
     border: none;
@@ -143,12 +189,10 @@ body {
     }
     #chat-list {
       max-height: 100%;
-      overflow: hidden;
       border-bottom: 1px solid #dee2e6;
     }
     #chat-details {
       max-height: 100%;
-      overflow: hidden;
     }
     .chat-item .avatar {
       width: 40px;
