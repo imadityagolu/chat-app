@@ -79,6 +79,26 @@
         { "sender": "Dr. Strange", "content": "Nirwastabhava", "timestamp": "16:10" },
         { "sender": "You", "content": "hehehe", "timestamp": "10:32" }
       ]
+    },
+    {
+      "user": "Wanda Vision",
+      "image": "https://images6.alphacoders.com/698/698425.jpg",
+      "lastMessage": "All of this is for us. So let me handle it.",
+      "lastSeen": "Last seen at 16:15",
+      "messages": [
+        { "sender": "Dr. Strange", "content": "All of this is for us. So let me handle it.", "timestamp": "16:10" },
+        { "sender": "You", "content": "You've never talked to me like this before!", "timestamp": "10:32" }
+      ]
+    },
+    {
+      "user": "Superman",
+      "image": "https://images8.alphacoders.com/136/1364318.jpeg",
+      "lastMessage": "Why am I so different from them?",
+      "lastSeen": "Last seen at 16:15",
+      "messages": [
+        { "sender": "Dr. Strange", "content": "Why am I so different from them?", "timestamp": "16:10" },
+        { "sender": "You", "content": "The only way to know how strong you are is to keep testing your limits.", "timestamp": "10:32" }
+      ]
     }
   ]
 }
