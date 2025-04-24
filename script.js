@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatHeader = document.getElementById("chat-header");
     const userImage = document.getElementById("user-image");
     const lastSeen = document.getElementById("last-seen");
+    const header = document.querySelector("header");
     let selectedChat = null;
 
     // Format timestamp
@@ -14,6 +15,51 @@ document.addEventListener("DOMContentLoaded", () => {
       const minutes = date.getMinutes().toString().padStart(2, '0');
       return `${hours}:${minutes}`;
     };
+
+    // Apply saved settings
+    const applySavedSettings = () => {
+      const savedHeaderColor = localStorage.getItem("headerColor");
+      const savedChatBgType = localStorage.getItem("chatBgType");
+      const savedChatBgValue = localStorage.getItem("chatBgValue");
+      if (savedHeaderColor) {
+        header.style.backgroundColor = savedHeaderColor;
+      }
+      if (savedChatBgType && savedChatBgValue) {
+        if (savedChatBgType === "color") {
+          messagesContainer.style.background = savedChatBgValue;
+          messagesContainer.style.backgroundImage = "none";
+        } else if (savedChatBgType === "pattern") {
+          messagesContainer.style.backgroundImage = savedChatBgValue;
+          messagesContainer.style.backgroundSize = "auto";
+        }
+      }
+    };
+
+    // Handle header color change
+    document.querySelectorAll(".header-color").forEach(button => {
+      button.addEventListener("click", () => {
+        const color = button.dataset.color;
+        header.style.backgroundColor = color;
+        localStorage.setItem("headerColor", color);
+      });
+    });
+
+    // Handle chat background change
+    document.querySelectorAll(".chat-bg").forEach(button => {
+      button.addEventListener("click", () => {
+        const bgType = button.dataset.bg;
+        const bgValue = button.dataset.value;
+        if (bgType === "color") {
+          messagesContainer.style.background = bgValue;
+          messagesContainer.style.backgroundImage = "none";
+        } else if (bgType === "pattern") {
+          messagesContainer.style.backgroundImage = bgValue;
+          messagesContainer.style.backgroundSize = "auto";
+        }
+        localStorage.setItem("chatBgType", bgType);
+        localStorage.setItem("chatBgValue", bgValue);
+      });
+    });
 
     // Load chat data
     fetch("chatData.json")
@@ -97,4 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       messageInput.value = "";
     });
+
+    // Apply saved settings on load
+    applySavedSettings();
   });
